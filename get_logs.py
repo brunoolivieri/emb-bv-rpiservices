@@ -68,7 +68,7 @@ def download_logs(drone_id, logs):
         try:
             print('Downloading: ' + item["key"])               
             urllib.request.urlretrieve((ADDRESS + FILES_ROUTE + item['key']), os.path.join(drone_id, item['key']), MyProgressBar())
-            time.sleep(2) # to avoid HTTP 429
+            time.sleep(2) # to avoid HTTP 429 from NodeJS protection.
         except Exception as e: 
             print('download_logs() failure ...')
             print(e)
